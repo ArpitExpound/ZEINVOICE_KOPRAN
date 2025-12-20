@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "E-Invoicing: Unit of Measure"
+  },
+  "ui5AppDetails": {
+    "appId": "zreimeins"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_8AFD936F31F0C6471858F8F5328963394048D1AB_TM",
+    "semanticObject": "ZR_EI_MEINS",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_8AFD936F31F0C6471858F8F5328963394048D1AB_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "E-Invoicing: Unit of Measure",
+        "icon": "sap-icon://monitor-payments"
+      }
+    }
+  ]
+}

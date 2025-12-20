@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "E-Invoicing: Basic Rate Condition types"
+  },
+  "ui5AppDetails": {
+    "appId": "zreibaserate"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_59936AA4B8FDE7DA8577219F3D2F2FE5073B1120_TM",
+    "semanticObject": "ZR_EI_BASERATE",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_59936AA4B8FDE7DA8577219F3D2F2FE5073B1120_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "E-Invoicing: Basic Rate Condition types",
+        "icon": "sap-icon://monitor-payments"
+      }
+    }
+  ]
+}

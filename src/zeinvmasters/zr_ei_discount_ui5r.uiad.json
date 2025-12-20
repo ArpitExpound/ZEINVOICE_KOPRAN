@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "E-Invoicing: Discount Condition types"
+  },
+  "ui5AppDetails": {
+    "appId": "zreidiscount"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_E7281131E66E2BCE212CAB3D0A9C1E8E8110B1C9_TM",
+    "semanticObject": "zr_ei_discount",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_E7281131E66E2BCE212CAB3D0A9C1E8E8110B1C9_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "E-Invoicing: Discount Condition types",
+        "icon": "sap-icon://monitor-payments"
+      }
+    }
+  ]
+}
