@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Port Details"
+  },
+  "ui5AppDetails": {
+    "appId": "zportcode"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BF33C68FDEE9C82E433054060CE18D505DA78FEC_TM",
+    "semanticObject": "PortCode",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BF33C68FDEE9C82E433054060CE18D505DA78FEC_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Port Details",
+        "icon": "sap-icon://monitor-payments"
+      }
+    }
+  ]
+}

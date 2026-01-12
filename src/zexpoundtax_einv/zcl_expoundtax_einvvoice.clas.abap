@@ -167,7 +167,7 @@ ENDCLASS.
 
 
 
-CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
+CLASS zcl_expoundtax_einvvoice IMPLEMENTATION.
 
 
   METHOD call_api.
@@ -333,7 +333,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
     lv_gstin = lv_sellergstin.
 
     CLEAR : gv_gstin, gv_username, gv_token.
-    SELECT SINGLE * FROM zei_api_url WHERE method = 'CAN_EINV' AND param1 = @lv_gstin INTO @DATA(ls_api_url).
+    SELECT SINGLE * FROM zei_api_url WHERE method = 'CAN_EINV' AND param1 = @lv_gstin INTO @DATA(ls_api_url). "#EC CI_ALL_FIELDS_NEEDED
     IF sy-subrc = 0.
       gv_gstin    = ls_api_url-param1.
       gv_username = ls_api_url-param2.
@@ -766,39 +766,40 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
     AND plant      = @billingdata-plant
     INTO TABLE @DATA(productplantbasic).
 
-    SELECT * "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_ALL_FIELDS_NEEDED
     FROM zei_baserate
     INTO TABLE @DATA(it_baserate).
 
-    SELECT *   "#EC CI_NOWHERE
+    SELECT *                                           "#EC CI_ALL_FIELDS_NEEDED
     FROM zei_bukrs
     INTO TABLE @DATA(it_bukrs).
 
-    SELECT *   "#EC CI_NOWHERE
+    SELECT *                                            "#EC CI_NOWHERE  "#EC CI_ALL_FIELDS_NEEDED
     FROM zei_discount
     INTO TABLE @DATA(it_discount).
 
-    SELECT *   "#EC CI_NOWHERE
+    SELECT *                                            "#EC CI_NOWHERE
     FROM zei_gstrate
     INTO TABLE @DATA(it_gstrate).
 
-    SELECT *  "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_NOWHERE
     FROM zei_meins
     INTO TABLE @DATA(it_meins).
 
-    SELECT *  "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_NOWHERE
     FROM zei_othrchrg
     INTO TABLE @DATA(it_othrchrg).
 
-    SELECT *  "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_NOWHERE
     FROM zei_roundoff
     INTO TABLE @DATA(it_roundoff).
 
-    SELECT *  "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_NOWHERE
     FROM zei_state
     INTO TABLE @DATA(it_state).
 
-    SELECT *  "#EC CI_NOWHERE
+    SELECT *                                             "#EC CI_NOWHERE
+
     FROM zei_api_url
     INTO TABLE @DATA(it_api_url).
 
@@ -913,7 +914,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
         WHERE plant = @lv_werks
         INTO @DATA(lv_address_id).
         IF sy-subrc = 0.
-          SELECT SINGLE * FROM i_organizationaddress
+          SELECT SINGLE * FROM i_organizationaddress       "#EC CI_ALL_FIELDS_NEEDED
           WITH PRIVILEGED ACCESS
           WHERE addressid = @lv_address_id
         INTO @DATA(gs_orgaddress).
@@ -975,7 +976,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
         WHERE customer = @lv_buyer
         INTO @DATA(wa_kna1).
 
-        SELECT SINGLE * FROM i_organizationaddress
+        SELECT SINGLE * FROM i_organizationaddress       "#EC CI_ALL_FIELDS_NEEDED
         WITH PRIVILEGED ACCESS
         WHERE addressid = @wa_kna1-addressid
         INTO @DATA(gs_buyaddress1).
@@ -1015,7 +1016,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
           WHERE customer = @wa_vbpa-customer
           INTO @DATA(wa_kna1_sh)..
 
-          SELECT SINGLE * FROM i_organizationaddress
+          SELECT SINGLE * FROM i_organizationaddress       "#EC CI_ALL_FIELDS_NEEDED
           WITH PRIVILEGED ACCESS
           WHERE addressid = @wa_kna1_sh-addressid
           INTO @DATA(gs_shpaddress).
@@ -1028,7 +1029,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
           lv_state_cd = VALUE #( it_state[ regio = wa_kna1_sh-region ]-statecode OPTIONAL ).
 
           wa_shipdtls-stcd = lv_state_cd.
-          wa_shipdtls-loc =  gs_shpaddress-CityName.
+          wa_shipdtls-loc =  gs_shpaddress-cityname.
 *          wa_shipdtls-pos  = lv_state_cd.
           wa_shipdtls-addr1 = |{ gs_shpaddress-streetname } { gs_shpaddress-streetprefixname1 } { gs_shpaddress-streetprefixname2 }|.
           wa_shipdtls-addr2 = |{ gs_shpaddress-streetsuffixname1 } { gs_shpaddress-streetsuffixname2 } { gs_shpaddress-cityname }|.
@@ -1047,7 +1048,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
           WHERE customer = @wa_vbpa_cr-customer
           INTO @wa_kna1_sh.
 
-          SELECT SINGLE * FROM i_organizationaddress
+          SELECT SINGLE * FROM i_organizationaddress     "#EC CI_ALL_FIELDS_NEEDED
           WITH PRIVILEGED ACCESS
           WHERE addressid = @wa_kna1_sh-addressid
           INTO @DATA(gs_shpaddresscr).
@@ -1122,6 +1123,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
 
           wa_itemlist-slno        = lv_num.
 
+          REPLACE ALL OCCURRENCES OF '"' IN  wa_vbrp-billingdocumentitemtext WITH 'Inch'.
           CONCATENATE wa_vbrp-product wa_vbrp-billingdocumentitemtext
           INTO wa_itemlist-prddesc SEPARATED BY '-'.
 
@@ -1282,7 +1284,7 @@ CLASS ZCL_EXPOUNDTAX_EINVVOICE IMPLEMENTATION.
         wa_refdtls-docperddtls-invenddt = wa_refdtls-docperddtls-invstdt.
 
 
-        SELECT SINGLE *
+        SELECT SINGLE *                                    "#EC CI_ALL_FIELDS_NEEDED
         FROM i_paymenttermstext
         WHERE paymentterms = @wa_head-customerpaymentterms AND language = 'E'
         INTO @DATA(wa_zterm).

@@ -14,10 +14,13 @@ define view entity ZC_EWB_TRANS_DTLS
       TransId,
       @EndUserText.label: 'Transporter Name'
       TransNm,
-      Distance,
+      Distance,    
+      @UI.lineItem: [{ position: 10 }]
       VehNo,
+      @UI.lineItem: [{ position: 20 }]
       VehType,
       TransMd,
+      @UI.lineItem: [{ position: 30 }]
       TransDocNo,
       TransDt,
       @Semantics.user.createdBy: true

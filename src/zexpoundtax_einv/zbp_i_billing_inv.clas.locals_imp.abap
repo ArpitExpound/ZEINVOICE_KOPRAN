@@ -140,7 +140,7 @@ CLASS lhc_zi_billing_inv IMPLEMENTATION.
 
     TYPES: BEGIN OF ty_msg,
              typ(1)   TYPE c,
-             vbeln    TYPE zchar10,
+             vbeln    TYPE zchar,
              msg(100) TYPE c,
            END OF ty_msg.
     DATA : lt_msg TYPE STANDARD TABLE OF ty_msg,
@@ -223,7 +223,7 @@ CLASS lhc_zi_billing_inv IMPLEMENTATION.
 
     TYPES: BEGIN OF ty_msg,
              typ(1)   TYPE c,
-             vbeln    TYPE zchar10,
+             vbeln    TYPE zchar,
              msg(100) TYPE c,
            END OF ty_msg.
     DATA : lt_msg TYPE STANDARD TABLE OF ty_msg,

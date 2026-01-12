@@ -77,7 +77,8 @@ define root view entity ZC_BILLING_INV
 
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BillingDocument', element: 'BillingDocument' } }]
       @UI: { lineItem: [ { position: 10 },
-      { type: #FOR_ACTION, dataAction: 'CreateIRN', label: 'Create IRN', invocationGrouping: #CHANGE_SET } ] }
+      { type: #FOR_ACTION, dataAction: 'CreateIRN', label: 'Create IRN', invocationGrouping: #CHANGE_SET } ] ,
+     selectionField: [{ position: 180 }]}
       @UI.dataPoint: { qualifier: 'BillingDocument', title: 'Billing Document' }
   key BillingDocument,
 

@@ -31,7 +31,8 @@ annotate entity ZC_BILLING_EWB with
   */
   @UI: { lineItem: [ { position: 10 },
   { type: #FOR_ACTION, dataAction: 'CreateEWB', label: 'Create E-Way Bill', invocationGrouping: #CHANGE_SET },
-    { type: #FOR_ACTION, dataAction: 'CIRN', label: 'Cancel E-Way Bill', invocationGrouping: #CHANGE_SET } ] }
+    { type: #FOR_ACTION, dataAction: 'CIRN', label: 'Cancel E-Way Bill', invocationGrouping: #CHANGE_SET } ],
+     selectionField: [{ position: 130 }]}
   @Consumption.valueHelpDefinition: [{ entity: { name: 'I_BillingDocument', element: 'BillingDocument' } }]
   BillingDocument;
 

@@ -48,7 +48,7 @@ CLASS ZAPICALL_TEST IMPLEMENTATION.
 
         TRY.
             DATA(lo_http_client) = cl_web_http_client_manager=>create_by_http_destination( i_destination = lo_destination ).
-          CATCH cx_web_http_client_error.
+          CATCH cx_web_http_client_error.  ##NO_HANDLER
             "handle exception
         ENDTRY.
         DATA(lo_request) = lo_http_client->get_http_request( ).
@@ -72,13 +72,13 @@ CLASS ZAPICALL_TEST IMPLEMENTATION.
 
         TRY.
             data(lo_response) = lo_http_client->execute( i_method = if_web_http_client=>put ).
-          CATCH cx_web_http_client_error.
+          CATCH cx_web_http_client_error.   ##NO_HANDLER
             "handle exception
         ENDTRY.
         lv_xml_result_str = lo_response->get_text( ).
         lv_response = lv_xml_result_str.
 
-      CATCH cx_http_dest_provider_error.
+      CATCH cx_http_dest_provider_error.   ##NO_HANDLER
 
 
     ENDTRY.
